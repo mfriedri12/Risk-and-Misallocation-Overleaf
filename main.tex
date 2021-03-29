@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bbold}
+
+\title{Risk and Misallocation}
+\author{Anuraag Aekka and Melanie Friedrichs}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Model}
+
+\subsection{Preferences \& Technology}
+
+\[U= E\sum_{t=0}^{\infty}\beta^t \frac{1}{1-\sigma}c^{1-\sigma} \]
+
+
+s.t. 
+\[c_t + b_{t+1} = y(z_t,k_t) + (1+r_t)b_t - q_{t} \big[k_{t+1} - (1-\delta)k_t \big]\]
+
+\[y(z,k) = z^{\eta}\left(k^{\alpha}l^{1-\alpha}\right)^{1-\eta} - wl\]
+
+\[b_{t+1}\geq -\max\Big\{\Bar{b},\theta\lambda(1-\delta)k_{t+1}\Big\}\  \]
+\[q_t =
+\begin{cases}
+1 \quad \text{if} \quad k_{t+1} \geq (1-\delta)k_t\\
+\lambda \quad \text{if}\quad  k_{t+1} < (1-\delta)k_t  
+\end{cases}\]
+
+
+
+where $\phi$ is the output shock, $\theta \in [0,1]$ governs the tightness of the borrowing constraint, $(1-\lambda)$ is the irreversibility cost.
+\iffalse
+\[k_{t+1} \leq (1+r)b_t - b_{t+1} + y_t + (1-\delta)k_t\]
+
+\[k_{t+1} \leq (1+r)b_t + \theta\lambda(1-\delta)k_{t+1} + y_t + (1-\delta)k_t\]
+
+
+\[k_{t+1}\Big(1-\theta\lambda(1-\delta)\Big) \leq (1+r)b_t + y_t + (1-\delta)k_t\]
+\[k_{t+1} \leq \frac{(1+r)b_t + y_t + (1-\delta)k_t}{1-\theta\lambda(1-\delta)}\]
+\fi
+\subsection{Timing}
+\begin{enumerate}
+\item Choose bond and capital holding for next period
+\item Idiosyncratic productivity shock realized
+\item Hire labor and produce
+\end{enumerate}
+
+\subsection{Market Clearing}
+
+
+
+
+\section{Model B}
+
+\subsection{Preferences \& Technology}
+
+Changes 5/26 -- see this is what Git is for! 
+\begin{itemize}
+    \item Is it ok if we use $\gamma$ instead of $\sigma$ for risk aversion? So $\sigma$ is free for volatilities 
+    \item We need labor -- i'm gonna switch teh variable for the firm from l to n; l being the labor SUPPLIED by agent i and n being the labor DEMANDED by agent/``entreprenur'' i. Note that in this first-pass model labor supply is inelastic and also labor income is safe-- there's no idiosyncratic risk. I think that's going to end up influencing results significantly  
+    \item changed ad hoc constraint to $\underline{b}$
+    \item Changed borrowing constraint to Tan specification -- not sure if there is a benefit to one or the other -- the way you have it the "unsecured" and the "secured" borrowing constraints are not additive 
+    \item  Tan makes  $\lambda$ the haircut so the constraint has $(1-\lambda)$ in it... I like this way better tho 
+\end{itemize}
+
+\[U= E\sum_{t=0}^{\infty}\beta^t \frac{1}{1-\gamma}c_{i,t}^{1-\gamma} \]
+
+
+s.t. 
+\[c_{i,t} + b_{i,t+1} = y(z_{i,t},k_{i,t}) + w_{i,t} l_{i,t} + (1+r_{t})b_{i,t} - q_{t} \big[k_{i,t+1} - (1-\delta)k_{i,t} \big]\]
+
+\[ \text{max}_{n} \quad y(z,k) = z^{\eta}\left(k^{\alpha}n^{1-\alpha}\right)^{1-\eta} - wn\]
+
+\[z_{i,t+1}= \rho_z z_{i,t} + \sigma_z\]
+
+\[b_{i,t+1}\geq -\theta\lambda(1-\delta)k_{i,t+1} - \underbar{b}  \]
+\[q_t =
+\begin{cases}
+1 \quad \text{if} \quad k_{t+1} \geq (1-\delta)k_t\\
+\lambda \quad \text{if}\quad  k_{t+1} < (1-\delta)k_t  
+\end{cases}\]
+
+
+
+where $\phi$ is the output shock, $\theta \in [0,1]$ governs the tightness of the borrowing constraint, $(1-\lambda)$ is the irreversibility cost.
+\iffalse
+\[k_{t+1} \leq (1+r)b_t - b_{t+1} + y_t + (1-\delta)k_t\]
+
+\[k_{t+1} \leq (1+r)b_t + \theta\lambda(1-\delta)k_{t+1} + y_t + (1-\delta)k_t\]
+
+
+\[k_{t+1}\Big(1-\theta\lambda(1-\delta)\Big) \leq (1+r)b_t + y_t + (1-\delta)k_t\]
+\[k_{t+1} \leq \frac{(1+r)b_t + y_t + (1-\delta)k_t}{1-\theta\lambda(1-\delta)}\]
+\fi
+\subsection{Timing}
+\begin{enumerate}
+\item Choose bond and capital holding for next period
+\item Idiosyncratic productivity shock realized
+\item Hire labor and produce
+\end{enumerate}
+
+\subsection{Market Clearing}
+
+\[ B_t \equiv \int_i b_{i,t}  =  0 \]
+
+\[ L_t \equiv \int_i l_{i,t}  =  \int_i n_{i,t} = N_t \]
+
+\[ C_t \equiv \int_i c_{i,t}  =  \int_i y_{i,t} = Y_t \]
+
+
+
+
+
+
+
+
+\end{document}  
